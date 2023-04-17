@@ -48,6 +48,7 @@ export default function NewComment({ post }) {
   function handleAddComment(data) {
     addComment(data.text);
     reset();
+    setVal('')
   }
 
   if (authLoading) return "Loading...";
