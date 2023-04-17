@@ -1,7 +1,7 @@
 import { Flex, IconButton } from '@chakra-ui/react'
 import { useAuth } from 'hooks/auth'
 import React from 'react'
-import { AiOutlineLike,AiFillLike,AiFillDelete, AiOutlineDelete } from 'react-icons/ai'
+import { AiOutlineLike,AiFillLike,AiOutlineDelete } from 'react-icons/ai'
 import { FaRegComment,FaComments } from 'react-icons/fa'
 import { useDeletePost, useToggleLike } from 'hooks/posts'
 import { Link } from 'react-router-dom'
