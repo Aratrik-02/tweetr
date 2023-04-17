@@ -8,7 +8,7 @@ export default function Users() {
   if (isLoading) return "Loading...";
 
   return (
-    <SimpleGrid columns={[2, 3, 4]} spacing={[2, 3]} px="10px" py="6">
+    <SimpleGrid columns={[2, 3, 4]} spacing={[2, 3]} px="10px" py="6" mt="8">
       {users?.map((user) => (
         <User key={user.id} user={user} />
       ))}

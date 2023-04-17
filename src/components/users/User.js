@@ -8,22 +8,25 @@ export default function User({ user }) {
 
   return (
     <VStack
-      bg="gray.100"
+      bg="#FDFDBD"
       shadow="sm"
-      rounded="md"
+      borderRadius="20"
+      boxShadow="md"
       textAlign="center"
       p="4"
       spacing="3"
     >
       <Avatar user={user} />
-      <Code>{username}</Code>
+      <Code fontWeight="bold" color="blue.500">
+        {username}
+      </Code>
       <Link>
         <Button
           as={Link}
           to={`${PROTECTED}/profile/${id}`}
           size="sm"
-          variant="link"
-          colorScheme="teal"
+          variant="solid"
+          colorScheme="blue"
         >
           View Profile
         </Button>

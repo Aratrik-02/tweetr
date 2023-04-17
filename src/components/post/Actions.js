@@ -35,7 +35,6 @@ export default function Actions({post}) {
             <Flex alignItems="center" ml="auto">
                 {!userLoading && user.id === uid && (
                 <IconButton size="md" 
-                // colorScheme='orange' 
                 variant="ghost" 
                 onClick={deletePost} isLoading={deleteLoading || userLoading}
                 colorScheme='red'
