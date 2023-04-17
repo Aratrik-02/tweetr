@@ -1,5 +1,6 @@
 import {
     Button,
+    Code,
     Divider,
     Flex,
     HStack,
@@ -52,19 +53,19 @@ import { AiOutlineEdit } from "react-icons/ai";
                 user={user} />
             }
           <Stack ml="10">
-            <Text fontSize="2xl">{user.username}</Text>
-            <HStack spacing="10">
-              <Text color="gray.700" fontSize={["sm", "lg"]}>
+            <Code fontSize="xl" color="blue.500" fontWeight="bold" variant="">@{user.username}</Code>
+            <HStack spacing="8">
+              <Code color="gray.700" fontSize={["sm", "lg"]} variant="">
                 Posts: {posts.length}
-              </Text>
-              <Text color="gray.700" fontSize={["sm", "lg"]}>
+              </Code>
+              <Code color="gray.700" fontSize={["sm", "lg"]} variant="">
                 Likes: {
                     likesCount
                 }
-              </Text>
-              <Text color="gray.700" fontSize={["sm", "lg"]}>
+              </Code>
+              <Code color="gray.700" fontSize={["sm", "lg"]} variant="">
                 Joined: {format(user.date, "MMMM YYY")}
-              </Text>
+              </Code>
             </HStack>
           </Stack>
   

@@ -10,7 +10,7 @@ export default function UsernameButton({ user }) {
       colorScheme="blue"
       variant="link"
     >
-      {user.username}
+      @{user.username}
     </Button>
   );
 }

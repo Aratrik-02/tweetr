@@ -51,7 +51,7 @@ import { useUpdateAvatar } from "hooks/users";
               loadingText="Uploading"
               w="full"
               my="6"
-              colorScheme="green"
+              colorScheme="blue"
               onClick={updateAvatar}
               isLoading={fileLoading}
             >

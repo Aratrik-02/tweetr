@@ -16,9 +16,9 @@ const Login = () => {
       })
     }
   return (
-    <Center w="100%" h="100vh" bg="green.50">
-        <Box mx="1" maxW="md" p="9" bg="green.50" borderWidth="2px" borderRadius="lg" color="green.500" >
-            <Heading mb="4" size="lg" textAlign="center">
+    <Center w="100%" h="100vh" bg="#fffee9">
+        <Box mx="1" maxW="md" p="9" bg="#FDFDBD" borderRadius="20" boxShadow="lg">
+            <Heading mb="4" size="lg" textAlign="center" color="blue.500">
                 Register
             </Heading>
             <form onSubmit={handleSubmit(handleRegister)}>
@@ -43,7 +43,7 @@ const Login = () => {
                 <Button 
                 mt="4" 
                 type="submit" 
-                colorScheme='green' 
+                colorScheme='blue' 
                 size="md" 
                 w="full"
                 isLoading={isLoading}
@@ -53,7 +53,7 @@ const Login = () => {
                 </Button>
             </form>
             <Text fontSize="xlg" align="center" mt="4" color="black">Already have an account?
-                <Link to={LOGIN} color="green.500"
+                <Link to={LOGIN} color="blue.500"
                     fontWeight={600}
                     textDecor="underline" 
                     as={RouterLink}
