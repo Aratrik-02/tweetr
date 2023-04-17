@@ -20,7 +20,7 @@ function ActiveUser(){
       colorScheme='blue' 
       variant="solid"
       borderRadius="10" w="full" as={Link} 
-      to={`${PROTECTED}/profile/${user?.id}`}>View Profile</Button>
+      to={`${PROTECTED}/profile/${user?.id}`}>Edit Profile</Button>
     </Stack>
   )
 }
