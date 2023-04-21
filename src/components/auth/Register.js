@@ -16,8 +16,8 @@ const Login = () => {
       })
     }
   return (
-    <Center w="100%" h="100vh" bg="#fffee9">
-        <Box mx="1" maxW="md" p="9" bg="#FDFDBD" borderRadius="20" boxShadow="lg">
+    <Center w="100%" h="100vh" bg="#FDFDBD">
+        <Box mx="1" maxW="md" p="9" bg="#fffee9" borderRadius="20" boxShadow="lg">
             <Heading mb="4" size="lg" textAlign="center" color="blue.500">
                 Register
             </Heading>

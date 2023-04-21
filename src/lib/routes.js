@@ -6,10 +6,11 @@ import Dashboard from "components/dashboard";
 import Comments from "components/comments";
 import Profile from "components/profile";
 import Users from "components/users";
+import ForgotPassword from "components/auth/ForgotPassword";
 export const ROOT="/";
 export const LOGIN="/login";
 export const REGISTER="/register";
-
+export const FORGOTPASS="/forgotpass";
 export const PROTECTED="/protected";
 export const DASHBOARD="/protected/dashboard";
 export const USERS="/protected/users";
@@ -20,6 +21,7 @@ export const router=createBrowserRouter([
     {path: ROOT,element: <Login/>},
     {path: LOGIN,element: <Login/>},
     {path: REGISTER,element: <Register/>},
+    {path: FORGOTPASS,element: <ForgotPassword/>},
     {path: PROTECTED,
         element: <Layout/>,
         children:[

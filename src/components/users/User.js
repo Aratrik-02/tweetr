@@ -18,7 +18,7 @@ export default function User({ user }) {
     >
       <Avatar user={user} />
       <Code fontWeight="bold" color="blue.500">
-        {username}
+        @{username}
       </Code>
       <Link>
         <Button

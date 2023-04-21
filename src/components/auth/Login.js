@@ -1,6 +1,6 @@
 import { Box, Center, Text, Button, Link, FormControl, FormErrorMessage, FormLabel, Heading, Input } from '@chakra-ui/react'
 import { Link as RouterLink } from 'react-router-dom'
-import { DASHBOARD, REGISTER } from 'lib/routes'
+import { DASHBOARD, REGISTER, FORGOTPASS } from 'lib/routes'
 import { useLogin } from 'hooks/auth'
 import { useForm } from 'react-hook-form'
 import { emailValidate, passwordValidate } from 'utils/form-validate'
@@ -10,10 +10,10 @@ const Login = () => {
     async function handleLogIn(data){
         const succeeded = await login({email:data.email, password:data.password, redirectTo:DASHBOARD})
         if(succeeded)reset()
-    }
+    }   
   return (
-    <Center w="100%" h="100vh" bg="#fffee9">
-        <Box mx="1" maxW="md" p="9" bg="#FDFDBD" boxShadow="lg"
+    <Center w="100%" h="100vh" bg="#FDFDBD">
+        <Box mx="1" maxW="md" p="9" bg="#fffee9" boxShadow="lg"
          borderRadius="20">
             <Heading mb="4" size="lg" textAlign="center" color="blue.500">
                 Login
@@ -31,6 +31,14 @@ const Login = () => {
                     type="password" placeholder="example@123" {...register('password',passwordValidate)}/> 
                     <FormErrorMessage>{errors.password?.message}</FormErrorMessage>
                 </FormControl>
+                <Text fontSize="sm" align="right" color="black" >
+                    <Link to={FORGOTPASS} color="blue.500"
+                        fontWeight={600}
+                        textDecor="underline" 
+                        textAlign="right"
+                        as={RouterLink}
+                    > Forgot Password? </Link>
+                </Text>
                 <Button 
                 mt="4" 
                 type="submit" 
@@ -42,6 +50,7 @@ const Login = () => {
                 >
                     Login
                 </Button>
+                
             </form>
             <Text fontSize="xlg" align="center" mt="4" color="black">Don't have an account?
                 <Link to={REGISTER} color="blue.500"
