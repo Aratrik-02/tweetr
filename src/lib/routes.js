@@ -7,6 +7,7 @@ import Comments from "components/comments";
 import Profile from "components/profile";
 import Users from "components/users";
 import ForgotPassword from "components/auth/ForgotPassword";
+import Home from "components/layout/Home";
 export const ROOT="/";
 export const LOGIN="/login";
 export const REGISTER="/register";
@@ -18,7 +19,7 @@ export const PROFILE="/protected/profile/:id";
 export const COMMENTS="/protected/comments/:id";
 
 export const router=createBrowserRouter([
-    {path: ROOT,element: <Login/>},
+    {path: ROOT,element: <Home/>},
     {path: LOGIN,element: <Login/>},
     {path: REGISTER,element: <Register/>},
     {path: FORGOTPASS,element: <ForgotPassword/>},

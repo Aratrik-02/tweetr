@@ -12,9 +12,7 @@ export default function Navbar(){
       height="20"
       zIndex="3"
       justify="center"
-      // bg="#B5F1CC"
       bg="#FEFF86"
-      // borderBottom="3px solid"
       boxShadow='lg'
     >
         <Flex px="4" w="full" align="center" maxW="1200px" mx="6" >
