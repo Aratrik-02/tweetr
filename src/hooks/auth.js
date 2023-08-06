@@ -2,13 +2,12 @@ import { useAuthState,useSignOut } from "react-firebase-hooks/auth";
 import { useEffect, useState } from "react";
 import { auth,db } from "lib/firebase";
 import { DASHBOARD, LOGIN } from "lib/routes";
-import {signInWithEmailAndPassword,createUserWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword,createUserWithEmailAndPassword, sendEmailVerification} from "firebase/auth";
 import { useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { setDoc,getDoc,doc } from "firebase/firestore";
 import isUsernameExists from "utils/isUsernameExists";
 export function useAuth(){
-    // const [authUser, isLoading, error] = useAuthState(auth);
     const [authUser, authLoading, error] = useAuthState(auth);
     const [isLoading,setLoading]=useState(true)
     const [user,setUser]=useState(null)
@@ -36,16 +35,27 @@ export function useLogin(){
     async function login({email, password,redirectTo=DASHBOARD}){
         setLoading(true)
         try{
-            await signInWithEmailAndPassword(auth,email, password)
-            toast({
-                title: "Login successful",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-                position: "bottom"
-            })
+            const res = await signInWithEmailAndPassword(auth,email, password)
+            
+            if(res.user.emailVerified){
+                toast({
+                    title: "Login successful",
+                    status: "success",
+                    duration: 3000,
+                    isClosable: true,
+                    position: "bottom"
+                })
+                navigate(redirectTo)
+            }else{
+                toast({
+                    title: "Please verify your email before proceeding :)",
+                    status: "warning",
+                    duration: 3000,
+                    isClosable: true,
+                    position: "top"
+                })
+            }
             setLoading(false)
-            navigate(redirectTo)
         }catch(error){
             toast({
                 title: "Login failed",
@@ -69,7 +79,7 @@ export function useRegister(){
     const [isLoading,setLoading]=useState(false)
     const toast = useToast()
     const navigate = useNavigate()
-    async function register({username,email, password,redirectTo=DASHBOARD}){
+    async function register({username,email, password,redirectTo=LOGIN}){
         setLoading(true)
         const usernameExists = await isUsernameExists(username)
         if(usernameExists){
@@ -92,6 +102,9 @@ export function useRegister(){
                     avatar: "",
                     date: Date.now()
                 })
+                await sendEmailVerification(res.user)
+                
+                console.log(res.user)
                 toast({
                     title: "Registration successful",
                     status: "success",
@@ -99,7 +112,14 @@ export function useRegister(){
                     isClosable: true,
                     position: "top"
                 })
-                navigate(redirectTo)
+                toast({
+                    title: "Please verify your email before proceeding :)",
+                    status: "warning",
+                    duration: 3000,
+                    isClosable: true,
+                    position: "top"
+                })
+                navigate(LOGIN)
             }catch(error){
                 toast({
                     title: "Registration failed",
